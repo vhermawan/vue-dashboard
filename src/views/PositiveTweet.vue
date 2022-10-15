@@ -4,6 +4,9 @@
       <h6>Positive Tweets</h6>
     </div>
     <div class="card-body px-0 pt-0 pb-2">
+      <div class="col-lg-5 search-box">
+        <input type="text" v-model="search" class="form-control form-control-lg" placeholder="Masukkan kata" >
+      </div>
       <div class="table-responsive p-0">
         <table class="table align-items-center mb-0">
           <thead>
@@ -18,7 +21,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="data in items" :key="data.id">
+            <tr v-for="data in filteredItems" :key="data.id">
               <td>
                 <div class="d-flex px-2 py-1">
                   <p class="text-xs font-weight-bold mb-0">{{data.user_screen_name}}</p>
@@ -49,7 +52,8 @@ export default {
   name: "authors-table",
   data() {
 			return {
-				items: null,
+        search:"",
+				items: [],
 				loading: false,
         currentPage: 1,
         totalRows: 1,
@@ -58,6 +62,13 @@ export default {
         rows: null,
 			}
 		},
+    computed: {
+      filteredItems () {
+        return this.items.filter(item => {
+          return item.text.toLowerCase().indexOf(this.search.toLowerCase()) > -1
+        })
+      }
+    },
 		mounted(){
 			this.fetchData(1);
 		},
@@ -76,7 +87,6 @@ export default {
 						function (response) {
 							this.loading = false;
               this.items = response.data  
-              console.log('res', response.data)
 						}.bind(this)
 					)
 					.catch(function (error) {

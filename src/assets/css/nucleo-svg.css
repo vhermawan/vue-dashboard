@@ -161,3 +161,7 @@ Stroke effects - Nucleo outline icons
   text-align: center;
   margin-bottom: 10px;
 }
+
+.search-box{
+  margin-left: 20px;
+}
