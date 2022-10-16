@@ -103,9 +103,6 @@ export default {
       series2.tooltipText = "Negative Sentiment: {valueY.value}";
       chart.cursor = new am4charts.XYCursor();
 
-      let scrollbarX = new am4charts.XYChartScrollbar();
-      chart.scrollbarX = scrollbarX;
-
       this.chart = chart;
     }
   }  

@@ -39,7 +39,7 @@
         </table>
       </div>
       <div class="pt-3 pagination-table">
-        <pagination v-model="currentPage" :records="500" :per-page="25" @paginate="myCallback"/>
+        <pagination v-model="currentPage" :records="19810" :per-page="10" @paginate="myCallback"/>
       </div>
     </div>
   </div>
@@ -84,6 +84,7 @@ export default {
 					.get(url)
 					.then(
 						function (response) {
+              console.log('res',response)
 							this.loading = false;
               this.items = response.data  
 						}.bind(this)
