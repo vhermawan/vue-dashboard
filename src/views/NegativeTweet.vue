@@ -38,7 +38,7 @@
         </table>
       </div>
       <div class="pt-3 pagination-table">
-        <pagination v-model="currentPage" :records="500" :per-page="25" @paginate="myCallback"/>
+        <pagination v-model="currentPage" :records="5991" :per-page="10" @paginate="myCallback"/>
       </div>
       <template>
       </template>

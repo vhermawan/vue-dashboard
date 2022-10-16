@@ -39,7 +39,7 @@
         </table>
       </div>
       <div class="pt-3 pagination-table">
-        <pagination v-model="currentPage" :records="19810" :per-page="10" @paginate="myCallback"/>
+        <pagination v-model="currentPage" :records="19817" :per-page="10" @paginate="myCallback"/>
       </div>
     </div>
   </div>
